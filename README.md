@@ -20,3 +20,5 @@ middleware for parsing json
 
 testing with postman for request bodies
 
+start using mongoose methods to manage data, CRUD functionality 
+
