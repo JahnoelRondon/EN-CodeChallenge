@@ -7,6 +7,7 @@ import {router as itemsRouter} from './routes/items.mjs'
 const app = express();
 
 // Middlewares
+app.use(express.json());
 app.use('/items', itemsRouter)
 
 // Routes

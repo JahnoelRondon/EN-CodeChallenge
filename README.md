@@ -16,3 +16,7 @@ Routes and controller and begin restful routing
 
 setup model/schema
 
+middleware for parsing json
+
+testing with postman for request bodies
+

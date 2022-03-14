@@ -1,10 +1,11 @@
 import {Router} from 'express';
+import * as itemsCtrl from './../controller/items.mjs'
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.send('You re on items')
-})
+router.get('/', itemsCtrl.index)
+
+router.post('/', itemsCtrl.create)
 
 export {
   router
