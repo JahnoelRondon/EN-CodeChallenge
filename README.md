@@ -11,3 +11,6 @@ create beginning routes and middleware in app
 connect to database
 
 Routes and controller and begin restful routing
+
+2. setting up the database
+
