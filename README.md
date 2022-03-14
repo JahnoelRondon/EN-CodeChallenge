@@ -14,3 +14,5 @@ Routes and controller and begin restful routing
 
 2. setting up the database
 
+setup model/schema
+
