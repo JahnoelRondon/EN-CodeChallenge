@@ -2,7 +2,7 @@ import {Item} from './../models/Items.mjs'
 
 function index(req, res) {
   Item.find({})
-  .then(allItems => res.send(allItems))
+  .then(allItems => res.status(200).json(allItems))
   .catch(err => res.send(err))
 }
 

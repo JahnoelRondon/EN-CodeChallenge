@@ -10,13 +10,8 @@ const app = express();
 // Middlewares
 app.use(cors());
 app.use(express.json());
+
 app.use('/items', itemsRouter)
-
-// Routes
-app.get('/', (req, res) => {
-  res.send('We are home')
-})
-
 
 // Connect to db
 mongoose.connect(
