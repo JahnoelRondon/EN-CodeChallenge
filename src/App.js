@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import Items from './pages/Items.jsx';
+import * as dbFunctions from './services/database.js'
+
 
 function App() {
+  const [collection, setCollection] = useState([])
+
+  useEffect(() => {
+    // on load get the items from the database
+    // if(collection === []) {
+
+    // }
+
+  })
+
+  const items = dbFunctions.fetchAll();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Items collection={collection}/>
+    </>
   );
 }
 
