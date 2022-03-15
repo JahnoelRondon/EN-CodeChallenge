@@ -1,3 +1,4 @@
+// show all
 function fetchAll(){
   return (
     fetch('http://localhost:3001/items')
@@ -5,12 +6,22 @@ function fetchAll(){
   )
 }
 
-// create
+function create(formData){
+  return fetch('http://localhost:3001/items', {
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify(formData)
+  })
+  .then(res => res.json())
+}
 
-// update
-
-// delete
+function deleteItem(objectId){
+  return fetch(`http://localhost:3001/items/${objectId}`, {method: 'DELETE'})
+  .then(res => res.json())
+}
 
 export {
-  fetchAll
+  fetchAll,
+  create,
+  deleteItem as delete
 }

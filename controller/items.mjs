@@ -21,8 +21,9 @@ function update(req, res) {
 }
 
 function deleteitem(req, res) {
+  console.log(req.params.itemId)
   Item.findByIdAndDelete(req.params.itemId)
-  .then(deletedItem => res.send(deletedItem))
+  .then(deletedItem => res.json(deletedItem))
   .catch(err => res.send(err));
 }
 
