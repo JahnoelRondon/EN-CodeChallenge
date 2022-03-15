@@ -4,6 +4,7 @@ export default function Items({collection}) {
   console.log(collection);
   return (
     <div>
+      {/* create a button or link that takes you to detail page of a specific item*/}
       {
         collection && collection.map(item => (
           <div>

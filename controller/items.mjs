@@ -8,7 +8,7 @@ function index(req, res) {
 
 function create(req, res) {
   Item.create(req.body)
-  .then(item => res.send(item))
+  .then(item => res.status(200).json(item))
   .catch(err => res.send({message: err}))
 }
 
@@ -28,7 +28,7 @@ function deleteitem(req, res) {
 
 function show(req, res){
   Item.findById(req.params.itemId)
-  .then(item => res.send(item))
+  .then(item => res.status(200).json(item))
   .catch(err => res.send({message: err}))
 }
 
