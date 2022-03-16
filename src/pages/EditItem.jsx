@@ -1,12 +1,12 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom';
 
 export default function EditItem(props) {
   const location = useLocation();
   const [formData, setFormData] = useState(location.state)
+  const [mount, setMount] = useState(false)
   
   const handleChange = e => {
-    console.log(e.target.name, e.target.value);
 		setFormData({ ...formData, [e.target.name]: e.target.value })
 	}
 
@@ -31,6 +31,14 @@ export default function EditItem(props) {
     return [year, month, day].join('-');
   }
 
+  useEffect(() => {
+    // initial formatting for date value
+    if(!mount){
+      formData.date = formatDate(formData.date.slice(0, 15))
+      setMount(true)
+    }
+  })
+
   return (
     <div>
       <h3>Edit Item</h3>
@@ -46,7 +54,7 @@ export default function EditItem(props) {
         </select>  <br/>
 
         <label htmlFor="date_input">Date:</label>
-        <input value={formatDate(formData.date)} type="date" name='date' id='date_input' onChange={handleChange} required/>  <br/>
+        <input value={formData.date} type="date" name='date' id='date_input' onChange={handleChange} required/>  <br/>
 
         <button>Submit</button>
       </form>
