@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, useNavigate} from 'react-router-dom'
 import * as dbFunctions from './services/database.js'
 // Components
 import AllItems from './pages/AllItems.jsx'
@@ -8,7 +8,9 @@ import EditItem from './pages/EditItem.jsx';
 
 
 function App() {
+  const navigate = useNavigate();
   const [collection, setCollection] = useState([])
+  const [mount, setMount] = useState(false)
 
   const handleCreate = formData => {
     // make a variable and use the form data as a parameter value for creating with the backend
@@ -19,7 +21,17 @@ function App() {
   }
 
   const handleEdit = (formData) => {
+    // return the updated item, 
+    //  make a new array that checks for the same object id and replace it with updated item
     dbFunctions.update(formData)
+    .then(updatedItem => {
+      const newCollection = collection.map(item => 
+        item._id === updatedItem._id ? updatedItem : item
+      );
+
+      setCollection(newCollection)
+      navigate('/')
+    })
     // redirect back to '/'
   }
 
@@ -32,16 +44,17 @@ function App() {
 
   useEffect(() => {
     // on load get the items from the database
-    if(collection.length === 0) {
+    // set mount variable to stop effect from infinite chain
+    if(collection.length === 0 && !mount) {
       dbFunctions.fetchAll()
       .then(data => setCollection(data))
+      setMount(true)
     }
-
+    console.log('effect ran');
   },[setCollection, collection])
 
   return (
-    <>
-    {/* use Navbar and react router to switch between components */}
+    <div className='container'>
       <Routes>
 
         <Route path="/" element={
@@ -57,7 +70,7 @@ function App() {
         <Route path='/edit' element={<EditItem handleEdit={handleEdit}/>}/>
         
       </Routes>
-    </>
+    </div>
   );
 }
 

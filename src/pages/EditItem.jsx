@@ -40,10 +40,15 @@ export default function EditItem({handleEdit}) {
 
   return (
     <div>
+      <a href="/">Back home</a>
       <h3>Edit Item</h3>
       <form autoComplete='off' onSubmit={handleSubmit}>
+
         <label htmlFor="title_input">Title:</label>
         <input value={formData.title} placeholder='Title' name='title' id='title_input' onChange={handleChange} required></input> <br/>
+
+        <label htmlFor="title_input">Price:</label>
+        <input value={formData.price} type="number" name='price' id='price_input' onChange={handleChange} required/>  <br/>
 
         <label htmlFor="importance_input">Importance:</label>
         <select value={formData.importance} name='importance' id='importance_input' onChange={handleChange}>

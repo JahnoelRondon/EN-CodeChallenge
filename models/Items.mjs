@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 
 const ItemSchema = new Schema({
   title: String,
+  price: Number,
   importance: {
     type: String,
     enum: ['High', 'Medium', 'Low']

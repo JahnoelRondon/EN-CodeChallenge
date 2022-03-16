@@ -21,7 +21,6 @@ function deleteItem(objectId){
 }
 
 function update(formData){
-  console.log(formData);
   return fetch(`http://localhost:3001/items/${formData._id}`, {
     method: 'PUT',
     headers: {'content-type': 'application/json'},
