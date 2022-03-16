@@ -20,8 +20,19 @@ function deleteItem(objectId){
   .then(res => res.json())
 }
 
+function update(formData){
+  console.log(formData);
+  return fetch(`http://localhost:3001/items/${formData._id}`, {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify(formData)
+  })
+  .then(res => res.json())
+}
+
 export {
   fetchAll,
   create,
-  deleteItem as delete
+  deleteItem as delete,
+  update
 }

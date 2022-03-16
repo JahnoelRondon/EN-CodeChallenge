@@ -18,8 +18,9 @@ function App() {
     .then(item => setCollection([...collection, item]))
   }
 
-  const handleEdit = id => {
-
+  const handleEdit = (formData) => {
+    dbFunctions.update(formData)
+    // redirect back to '/'
   }
 
   const handleDelete = id => {
@@ -53,7 +54,7 @@ function App() {
         }
         />
 
-        <Route path='/edit' element={<EditItem />}/>
+        <Route path='/edit' element={<EditItem handleEdit={handleEdit}/>}/>
         
       </Routes>
     </>

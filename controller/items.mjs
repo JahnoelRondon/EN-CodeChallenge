@@ -14,14 +14,10 @@ function create(req, res) {
 
 function update(req, res) {
   Item.findByIdAndUpdate(req.params.itemId, req.body, {next: true})
-  .then(() => {
-    // redirect to the detail view of the specific item after updating
-    res.redirect(`/items`)
-  })
+  .then((item) => res.json(item))
 }
 
 function deleteitem(req, res) {
-  console.log(req.params.itemId)
   Item.findByIdAndDelete(req.params.itemId)
   .then(deletedItem => res.json(deletedItem))
   .catch(err => res.send(err));

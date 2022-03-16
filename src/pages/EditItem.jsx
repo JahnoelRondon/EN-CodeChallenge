@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom';
 
-export default function EditItem(props) {
+export default function EditItem({handleEdit}) {
   const location = useLocation();
   const [formData, setFormData] = useState(location.state)
   const [mount, setMount] = useState(false)
@@ -12,8 +12,7 @@ export default function EditItem(props) {
 
   const handleSubmit = e => {
 		e.preventDefault()
-    console.log(formData)
-    // update function from app.js, make it rerender/render back to "/"
+    handleEdit(formData)
 	}
 
   // changes the format to YYYY/MM/dd and joins with - for input value

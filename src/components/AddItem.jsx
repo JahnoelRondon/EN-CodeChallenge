@@ -10,7 +10,6 @@ export default function AddItem({handleCreate}) {
   })
 
   const handleChange = (e) => {
-    console.log(e.target.name, e.target.value);
     setData({...formData, [e.target.name]: e.target.value})
   }
 

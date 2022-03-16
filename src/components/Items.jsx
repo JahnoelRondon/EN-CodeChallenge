@@ -1,14 +1,22 @@
 import React from 'react'
+import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 
 export default function Items({collection, handleDelete}) {
+  const [mount, setMount] = useState(false)
+  console.log(collection);
 
-  // converting date to local
-  collection.map(item => {
-    const date = new Date(item.date);
-    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-    console.log(date);
-    item.date = date.toString();
+  useEffect(() => {
+    if(!mount && collection.length > 0){
+      // converting date to local
+      collection.map(item => {
+        const date = new Date(item.date);
+        // fixes timezone day issue
+        date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+        item.date = date.toLocaleString();
+      })
+      setMount(true);
+    }
   })
 
   return (

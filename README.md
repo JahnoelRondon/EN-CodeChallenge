@@ -59,5 +59,5 @@ https://stackoverflow.com/questions/14647290/html-5-date-field-shows-as-mm-dd-yy
 
 https://stackoverflow.com/questions/23593052/format-javascript-date-as-yyyy-mm-dd
 
-issue with date being wrong 
-https://stackoverflow.com/questions/7556591/is-the-javascript-date-object-always-one-day-off
+Converting GMT to local time
+https://bobbyhadz.com/blog/javascript-convert-gmt-to-local-time
