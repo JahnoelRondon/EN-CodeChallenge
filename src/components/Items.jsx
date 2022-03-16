@@ -14,6 +14,7 @@ export default function Items({collection, handleDelete}) {
 
   return (
     <div>
+      <h3>{collection.length ? 'All items' : 'No items'}</h3>
       {
         collection && collection.map(item => (
           <div key={item._id} className='item'>
