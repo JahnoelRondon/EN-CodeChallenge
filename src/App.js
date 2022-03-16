@@ -1,9 +1,10 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import {Routes, Route} from 'react-router-dom'
 import * as dbFunctions from './services/database.js'
 // Components
-import Items from './pages/Items.jsx';
-import AddItem from './pages/AddItem.jsx';
+import AllItems from './pages/AllItems.jsx'
+import EditItem from './pages/EditItem.jsx';
 
 
 function App() {
@@ -37,12 +38,24 @@ function App() {
 
   },[setCollection, collection])
 
-
   return (
     <>
     {/* use Navbar and react router to switch between components */}
-      <AddItem handleCreate={handleCreate}/>
-      <Items collection={collection} handleDelete={handleDelete} handleEdit={handleEdit}/>
+      <Routes>
+
+        <Route path="/" element={
+          <AllItems 
+            collection={collection} 
+            handleDelete={handleDelete} 
+            handleEdit={handleEdit}
+            handleCreate={handleCreate}
+          />
+        }
+        />
+
+        <Route path='/edit' element={<EditItem />}/>
+        
+      </Routes>
     </>
   );
 }

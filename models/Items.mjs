@@ -10,8 +10,8 @@ const ItemSchema = new Schema({
     enum: ['High', 'Medium', 'Low']
   },
   date: { 
+    // automatically converted into UTC
     type: Date, 
-    default: Date.now
   }
 })
 

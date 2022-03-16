@@ -15,6 +15,7 @@ export default function AddItem({handleCreate}) {
 
   const handleSubmit = e => {
     e.preventDefault()
+    console.log(formData);
     handleCreate(formData)
   }
 
