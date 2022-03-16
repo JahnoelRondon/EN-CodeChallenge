@@ -6,6 +6,7 @@ export default function EditItem(props) {
   const [formData, setFormData] = useState(location.state)
   
   const handleChange = e => {
+    console.log(e.target.name, e.target.value);
 		setFormData({ ...formData, [e.target.name]: e.target.value })
 	}
 
@@ -14,6 +15,21 @@ export default function EditItem(props) {
     console.log(formData)
     // update function from app.js, make it rerender/render back to "/"
 	}
+
+  // changes the format to YYYY/MM/dd and joins with - for input value
+  function formatDate(date) {
+    let d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+      if (month.length < 2) 
+        month = '0' + month;
+      if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
 
   return (
     <div>
@@ -30,7 +46,7 @@ export default function EditItem(props) {
         </select>  <br/>
 
         <label htmlFor="date_input">Date:</label>
-        <input value={formData.date} type="date" name='date' id='date_input' onChange={handleChange} required/>  <br/>
+        <input value={formatDate(formData.date)} type="date" name='date' id='date_input' onChange={handleChange} required/>  <br/>
 
         <button>Submit</button>
       </form>

@@ -40,17 +40,21 @@ create ui for event handling
 
 1. UTC?
 
-TimeZone Issue:
+-TimeZone Issue Fixed:
 https://stackoverflow.com/questions/28344408/why-does-js-subtract-a-day-from-a-date-object-with-a-certain-format
 
-Stringify:
-https://attacomsian.com/blog/javascript-convert-date-to-utc-string#:~:text=To%20convert%20a%20JavaScript%20date,using%20the%20universal%20time%20zone.&text=Alternatively%2C%20you%20could%20also%20use,directly%20in%20UTC%20time%20zone.
-
-StackOverflow:
+-StackOverflow:
 https://stackoverflow.com/questions/948532/how-do-you-convert-a-javascript-date-to-utc
 
-ISO:
+-ISO:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
 
-Dates:
+-Dates & Formatting:
 https://www.youtube.com/watch?v=zwBMp1U6FII
+
+https://attacomsian.com/blog/javascript-convert-date-to-utc-string#:~:text=To%20convert%20a%20JavaScript%20date,using%20the%20universal%20time%20zone.&text=Alternatively%2C%20you%20could%20also%20use,directly%20in%20UTC%20time%20zone
+
+Input field value requirements -
+https://stackoverflow.com/questions/14647290/html-5-date-field-shows-as-mm-dd-yyyy-in-chrome-even-when-valid-date-is-set
+
+https://stackoverflow.com/questions/23593052/format-javascript-date-as-yyyy-mm-dd

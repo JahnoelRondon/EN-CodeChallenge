@@ -2,7 +2,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Items({collection, handleDelete}) {
-  // change date here?
+
+  // converting date to local
   collection.map(item => {
     const date = new Date(item.date);
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
